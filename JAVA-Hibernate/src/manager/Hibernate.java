@@ -5,9 +5,9 @@ import java.util.Date;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 import model.Users;
-import utils.HibernateUtil;
 
 public class Hibernate {
 
@@ -23,7 +23,8 @@ public class Hibernate {
  
     	Transaction tx = null;
     	//Get the session object.
-    	Session session = HibernateUtil.getSessionFactory().openSession();
+    	org.hibernate.SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+    	Session session = sessionFactory.openSession();
     	try{
               //Start hibernate session.
     	      tx = session.beginTransaction();

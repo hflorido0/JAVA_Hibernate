@@ -9,12 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name= "users") 
+@Entity(name= "users")
+@Table(name= "Users")
 public class Users {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "id", unique = true, nullable = true)
 	private int id;
 	@Column(name = "USER_NAME")
 	private String userName;
